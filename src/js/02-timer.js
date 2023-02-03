@@ -19,9 +19,10 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
-      Notiflix.Notify.failure('Будь ласка, виберіть дату в майбутньому');
+      Notiflix.Notify.failure('Будь ласка, виберіть дату в майбутньому', { fontSize: '15px', },);
       btnStart.disabled = true;
     } else {
+      Notiflix.Notify.success('Вітаю, врубайте відлік', { fontSize: '15px', },);
       btnStart.disabled = false;
     }
   },
@@ -66,7 +67,7 @@ btnStart.addEventListener('click', () => {
         timerHtml.style.color = 'tomato';
       }
     } else {
-      Notiflix.Notify.success('Зворотний відлік завершено');
+      Notiflix.Notify.success('Зворотний відлік завершено', { fontSize: '15px', },);
       timerHtml.style.color = 'black';
       clearInterval(timer);
     }
